@@ -24,29 +24,32 @@ trainingDataFile.close
 
 # Train your data by importing the file where we trained our small data.
 # ttsn.training(trainingDataList)
-for i in range(10):
-	for trainingData in trainingDataList:
-		splitTrainingData = trainingData.split(',')
-		inputs = (np.asfarray(splitTrainingData[1:])/255 * 0.99) + 0.01
-		targets = np.zeros(output_nodes) + 0.01
-		targets[int(splitTrainingData[0])] = 0.99
-		network.train(inputs, targets)
+# for i in range(10):
+for trainingData in trainingDataList:
+	splitTrainingData = trainingData.split(',')
+	inputs = (np.asfarray(splitTrainingData[1:])/255 * 0.99) + 0.01
+	targets = np.zeros(output_nodes) + 0.01
+	targets[int(splitTrainingData[0])] = 0.99
+	network.train(inputs, targets)
 
 # Displaying my handwritten number image
-path = r'C:/Users/F.R.I.E.N.D.S/Desktop/Directed_Studies/images/originalSeven.jpg'
+path = r'C:/Users/F.R.I.E.N.D.S/Desktop/Directed_Studies/images/originalSix.jpg'
 imageArray = cv2.imread(path, 0)
-vd.viewImage(path)
-# print(imageArray.shape)
 
-resizedImage = cv2.resize(imageArray, (28,28))
-reresizedImage = np.amax(resizedImage)-resizedImage
-imageData = (reresizedImage/255.0*0.99) + 0.01
-print(imageData)
+
+# Resizing the image into 28*28 pixel image in order to feed it into our
+# main program.
+resizedImage = cv2.resize(imageArray, (28,28))		# scales the image to 28*28 pixel
+reresizedImage = np.amax(resizedImage)-resizedImage # normalizing the numbers(between 0-1)
+imageData = (reresizedImage/255.0*0.99) + 0.01		#
 imageFlatten = imageData.reshape(-1)
 # print(imageFlatten.shape)
 
+
+
+# Test your number using the neural network's query function
 print(np.argmax(network.query(imageFlatten)))
-# print(imageArray.shape)
-# x = 255.0 - resizedImage
-# imageData = resizedImage/255.0*0.99 * 0.01
-# print(imageData)
+vd.viewImage(path)
+
+
+

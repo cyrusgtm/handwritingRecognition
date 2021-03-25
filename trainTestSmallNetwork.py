@@ -44,7 +44,7 @@ training(trainingDataList)
 
 
 
-
+# Testing your network.
 def testing(testingDataLists):
 	# dictionary that'll contain networks guess and actual answer
 	# for comparision
