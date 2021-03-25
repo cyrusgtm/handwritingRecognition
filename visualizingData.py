@@ -15,7 +15,7 @@ def saveImage(path, locationAndName, color):
 	# colored image.
 	imageArray = cv2.imread(path, 0)
 	resizedImage = np.amax(imageArray) - cv2.resize(imageArray, (28,28))
-	imageData = (resizedImage/np.amax(imageArray)*0.99) + 0.01
+	imageData = (resizedImage/255.0*0.99) + 0.01
 	plt.imshow(imageData, cmap = color, interpolation = None)
 	plt.imsave(locationAndName, imageData, cmap = color)
 	# plt.imsave(locationAndName, imageData, cmap = 'Greys')
