@@ -12,12 +12,20 @@ ttsn.training(trainingDataList)
 
 
 
+# # importing testing data with 10 rows of data
+# testingDataFile = open('data/mnist_test.csv', 'r')
+# testingDataList = testingDataFile.readlines()
+# testingDataFile.close
+
+
+# Test your data by importing the file where we trained our small data.
+def test(data):
+	testdata = ttsn.testing(data)
+	return testdata
+
 # importing testing data with 10 rows of data
 testingDataFile = open('data/mnist_test.csv', 'r')
 testingDataList = testingDataFile.readlines()
 testingDataFile.close
 
-
-# Test your data by importing the file where we trained our small data.
-ttsn.testing(testingDataList)
-
+test(testingDataList)

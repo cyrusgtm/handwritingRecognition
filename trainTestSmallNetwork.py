@@ -10,7 +10,7 @@ output_nodes = 10
 
 
 # setting learning rate
-learning_rate = 0.2
+learning_rate = 0.1
 # initializing our main network
 network = nn.neuralNetwork(input_nodes, hidden_nodes, output_nodes, learning_rate)
 

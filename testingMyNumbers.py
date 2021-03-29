@@ -40,10 +40,15 @@ imageArray = cv2.imread(path, 0)
 # Resizing the image into 28*28 pixel image in order to feed it into our
 # main program.
 resizedImage = cv2.resize(imageArray, (28,28))		# scales the image to 28*28 pixel
-reresizedImage = np.amax(resizedImage)-resizedImage # normalizing the numbers(between 0-1)
-imageData = (reresizedImage/255.0*0.99) + 0.01		#
-imageFlatten = imageData.reshape(-1)
-# print(imageFlatten.shape)
+# This line helps our image to match the mnist data set image. Usually
+# our imported image are mostly black and the numbers in the image are displayed as 
+# white pixels, but our mnist data set have the exact opposite color pattern, where
+# the numbers are displayed in black and the background is white. Therefore
+# this line changes our image into mnist image format.
+reresizedImage = np.amax(resizedImage)-resizedImage 
+imageData = (reresizedImage/255.0*0.99) + 0.01		# normalizing the numbers(between 0-1)
+imageFlatten = imageData.reshape(-1)				# changes 28*28 into a vector with 784 row
+
 
 
 

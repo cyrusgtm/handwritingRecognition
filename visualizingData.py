@@ -1,4 +1,5 @@
 import trainTestSmallNetwork as ttsn
+import trainTestLargeNetwork as ttln
 # import neuralNetwork as nn
 import numpy as np
 import matplotlib.pyplot as plt
@@ -22,7 +23,7 @@ def saveImage(path, locationAndName, color):
 	plt.show()
 	return 'The image was successfully saved and displayed'
 
-print(saveImage(r'C:/Users/F.R.I.E.N.D.S/Desktop/Directed_Studies/images/originalSeven.jpg', 'images/grey_scaled_7', 'Greys'))
+# saveImage(r'C:/Users/F.R.I.E.N.D.S/Desktop/Directed_Studies/images/originalSeven.jpg', 'images/grey_scaled_7', 'Greys')
 
 
 
@@ -51,3 +52,32 @@ def viewImage2(array):
 	plt.imshow(imageData, cmap = 'Greys', interpolation = None)
 	plt.show()
 	return 'The image was successfully saved and displayed'
+
+
+
+# importing training data with 100 rows of data
+trainingDataFile = open('data/mnist_train.csv', 'r')
+trainingDataList = trainingDataFile.readlines()
+trainingDataFile.close
+
+# importing testing data with 10 rows of data
+testingDataFile = open('data/mnist_test.csv', 'r')
+testingDataList = testingDataFile.readlines()
+testingDataFile.close
+
+for i in range(10):
+	learning_rate += 0.1
+	ttsn.training(trainingDataList)
+	print(ttsn.testing(testingDataList))
+
+
+
+
+
+
+
+
+
+
+
+
