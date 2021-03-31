@@ -28,4 +28,4 @@ testingDataFile = open('data/mnist_test.csv', 'r')
 testingDataList = testingDataFile.readlines()
 testingDataFile.close
 
-test(testingDataList)
+print(test(testingDataList))

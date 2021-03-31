@@ -65,10 +65,10 @@ testingDataFile = open('data/mnist_test.csv', 'r')
 testingDataList = testingDataFile.readlines()
 testingDataFile.close
 
-for i in range(10):
-	learning_rate += 0.1
-	ttsn.training(trainingDataList)
-	print(ttsn.testing(testingDataList))
+# for i in range(10):
+# 	learning_rate += 0.1
+# 	ttsn.training(trainingDataList)
+# 	print(ttsn.testing(testingDataList))
 
 
 
